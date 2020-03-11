@@ -1,7 +1,7 @@
 
 #include <iostream>
-#include "Composant1.h"
-#include "Composant2.h"
+#include <dlfcn.h>
+
 
 int main(int argc, char ** argv)
 {
@@ -11,10 +11,14 @@ int main(int argc, char ** argv)
 	int valeur1;
 	int valeur2;
 
-	valeur1=composant1(data1,data2);
+	void *handle;
+	void (*func_name)(const char*);
 
-	valeur2=composant2(data1,data2);
+	handle=dlopen("../bin/libComposant1.so", RTLD_LAZY);
+	*(void**)(&func_name) = dlsym(handle,"composant1");
 
-	std::cout << getComposant1Version() << std::endl;
+	handle=dlopen("../bin/libComposant2.so", RTLD_LAZY);
+        *(void**)(&func_name) = dlsym(handle,"composant2");
+
 	std::cout << "valeur 1 :" << valeur1 << " valeur 2 :" << valeur2 << std::endl;
 }
