@@ -2,7 +2,7 @@
 CPPFLAGS=-I../interfaces
 
 COMPOSANT = Composant2
-
+COMPONENTS_DIRNAMES = Composant2
 LIBSO = lib${COMPOSANT}.so
 LIBSO_OBJS = ${COMPOSANT}.o
 DESTINATION_DIR = ../lib
