@@ -1,3 +1,8 @@
+IMPORTANT : 
+! le dossier screens contient les capture d'écran concernant la VM et l'éxécution des commandes objdump !
+
+
+
 - le code a été modifié pour prendre en compte la liaison dynamique du code main, avec les deux composantes
 - l'utilisation de dlopen et dlsym pour ne créer que les composantes qui seront compilés
 - les paramètres sont initialisés dans Makefile de la racine
